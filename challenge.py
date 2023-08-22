@@ -1,3 +1,5 @@
+import sqlite3
+
 class Challenge:
     def __init__(self, id, name, charisma_bias, creativity_bias, runway_presence_bias,
                  performance_skills_bias, sewing_and_crafting_bias, comedy_bias,
