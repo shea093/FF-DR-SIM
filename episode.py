@@ -5,14 +5,13 @@ class Episode:
         self.id = id
         self.episode_number = episode_number
 
-    def insert_into_db(self):
-        conn = sqlite3.connect('ff_dr_sim.db')
-        cursor = conn.cursor()
+    def __init__(self, episode_number, contestants, challenge):
+        self.episode_number = episode_number
+        self.contestants = contestants
+        self.challenge = challenge
+        self.scores = {}  # Dictionary to store contestant scores
 
-        cursor.execute('''
-            INSERT INTO episodes (episode_number)
-            VALUES (?)
-        ''', (self.episode_number,))
-
-        conn.commit()
-        conn.close()
+    def run_episode(self):
+        for contestant in self.contestants:
+            contestant_score = contestant.perform_challenge(self.challenge)
+            self.scores[contestant] = contestant_score
