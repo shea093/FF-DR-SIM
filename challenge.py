@@ -1,27 +1,26 @@
-import sqlite3
+import config
 
 class Challenge:
-    def __init__(self, id, name, charisma_bias, creativity_bias, runway_presence_bias,
-                 performance_skills_bias, sewing_and_crafting_bias, comedy_bias,
-                 drama_and_emotion_bias, adaptability_bias, teamwork_bias,
-                 confidence_bias, lipsyncing_bias):
+    _DB_COLUMNS = config.DB_COLUMNS
+    def __init__(self, id, name, *biases):
+        """
+        Initialize a Challenge object with specified attributes and biases.
+
+        :param id: The ID of the challenge.
+        :param name: The name of the challenge.
+        :param biases: Bias values for each attribute, ordered according to DB_COLUMNS.
+        """
         self.id = id
         self.name = name
-        self.biases = {
-            "charisma": charisma_bias,
-            "creativity": creativity_bias,
-            "runway_presence": runway_presence_bias,
-            "performance_skills": performance_skills_bias,
-            "sewing_and_crafting": sewing_and_crafting_bias,
-            "comedy": comedy_bias,
-            "drama_and_emotion": drama_and_emotion_bias,
-            "adaptability": adaptability_bias,
-            "teamwork": teamwork_bias,
-            "confidence": confidence_bias,
-            "lipsyncing": lipsyncing_bias
-        }
+        self.biases = dict(zip(config.DB_COLUMNS, biases))
 
     def simulate_challenge(self, contestant):
+        """
+        Simulate the performance of the challenge for a given contestant.
+
+        :param contestant: The Contestant object performing the challenge.
+        :return: A simulated challenge score based on contestant attributes and biases.
+        """
         total_bias = sum(self.biases.values())
 
         # Calculate challenge score based on biases and contestant stats
