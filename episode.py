@@ -65,9 +65,29 @@ class Episode:
 
         sorted_contestants = sorted(self.contestants, key=lambda c: self.scores[c], reverse=True)
 
-        self.high_group = sorted_contestants[:num_top]
-        self.low_group = sorted_contestants[-num_bottom:]
-        self.safe_group = [c for c in self.contestants if c not in self.high_group and c not in self.low_group]
+        # Clear existing group assignments
+        self.high_group = []
+        self.low_group = []
+        self.safe_group = []
+
+        # Track assigned contestants
+        assigned_contestants = []
+
+        # Assign contestants to groups
+        for contestant in sorted_contestants:
+            if contestant in assigned_contestants:
+                continue
+
+            if len(self.high_group) < num_top:
+                self.high_group.append(contestant)
+                assigned_contestants.append(contestant)
+            elif len(self.low_group) < num_bottom:
+                self.low_group.append(contestant)
+                assigned_contestants.append(contestant)
+            else:
+                self.safe_group.append(contestant)
+                assigned_contestants.append(contestant)
+
     def __str__(self):
         """
         Return a string representation of the Episode object.
