@@ -8,7 +8,49 @@ from contestant import Contestant
 from challenge import Challenge
 import config
 import random
+import json
+import season
 # Assume you have the necessary classes and functions defined
+
+
+def load_challenges_from_json(json_path):
+    """
+    Load challenge data from a JSON file and create Challenge objects.
+
+    :param json_path: Path to the JSON file containing challenge data.
+    :return: List of Challenge objects.
+    """
+    with open(json_path, "r") as file:
+        challenge_data = json.load(file)
+
+    challenge_objects = []
+    for data in challenge_data:
+        name = data["name"]
+        biases = [data["biases"][stat] for stat in config.DB_COLUMNS[1:]]
+        challenge_objects.append(Challenge(name, *biases))
+
+    return challenge_objects
+
+
+def load_objects_from_json(json_path, object_class, attributes_mapping):
+    """
+    Load data from a JSON file and create objects based on a provided class structure.
+
+    :param json_path: Path to the JSON file containing data.
+    :param object_class: The class to create objects from.
+    :param attributes_mapping: A dictionary mapping attribute names to keys in the JSON data.
+    :return: List of objects created from the JSON data.
+    """
+    with open(json_path, "r") as file:
+        data = json.load(file)
+
+    objects = []
+    for item in data:
+        attributes = [item[key] for key in attributes_mapping.values()]
+        objects.append(object_class(*attributes))
+
+    return objects
+
 
 def create_test_episode():
     # Create contestants with names and randomized stats
@@ -17,7 +59,7 @@ def create_test_episode():
             "name": "Contestant " + str(i),
             "stats": [random.randint(1, 10) for _ in range(len(config.DB_COLUMNS) - 1)]
         }
-        for i in range(1, 5)
+        for i in range(1, 14)
     ]
     contestants = [Contestant(**data) for data in contestant_data]
 
@@ -25,6 +67,8 @@ def create_test_episode():
 
     # Simulate challenge scores for each contestant
     challenge = Challenge(1, "Test Challenge", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    test_challenges = load_objects_from_json("json_data/rpdr_challenges.json", Challenge, {"name": "name", "biases": "biases"})
+    test_contestants = load_objects_from_json("json_data/final_ffxiv_contestants_extended.json",Contestant, {"name": "name", "stats": "stats"})
 
     # Create an episode
     episode = Episode(1,contestants,challenge)
@@ -52,6 +96,7 @@ if __name__ == '__main__':
     # Determine winners
     winners = test_episode.determine_winner()
     bottom2 = test_episode.determine_bottom_2()
+
 
     # Display results
     print("Episode Results:")

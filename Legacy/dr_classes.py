@@ -1,4 +1,4 @@
-import sqlite3
+mport sqlite3
 import random
 
 # Define the Contestant class

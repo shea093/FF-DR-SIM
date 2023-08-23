@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Alphinaud",
+    "stats": {
+      "charisma": 7.2,
+      "creativity": 8.4,
+      "runway_presence": 6.5,
+      "performance_skills": 7.1,
+      "sewing_and_crafting": 6.0,
+      "comedy": 6.1,
+      "drama_and_emotion": 8.2,
+      "adaptability": 7.8,
+      "teamwork": 8.9,
+      "confidence": 7.4,
+      "lipsyncing": 6.3
+    }
+  },
+  {
+    "name": "Y'shtola",
+    "stats": {
+      "charisma": 9.3,
+      "creativity": 8.2,
+      "runway_presence": 9.1,
+      "performance_skills": 8.4,
+      "sewing_and_crafting": 7.2,
+      "comedy": 6.5,
+      "drama_and_emotion": 7.8,
+      "adaptability": 7.6,
+      "teamwork": 8.5,
+      "confidence": 9.2,
+      "lipsyncing": 7.2
+    }
+  },
+  {
+    "name": "Thancred",
+    "stats": {
+      "charisma": 8.5,
+      "creativity": 7.3,
+      "runway_presence": 7.4,
+      "performance_skills": 8.6,
+      "sewing_and_crafting": 6.8,
+      "comedy": 7.1,
+      "drama_and_emotion": 8.4,
+      "adaptability": 8.0,
+      "teamwork": 7.6,
+      "confidence": 8.7,
+      "lipsyncing": 8.3
+    }
+  },
+  {
+    "name": "Urianger",
+    "stats": {
+      "charisma": 6.8,
+      "creativity": 8.7,
+      "runway_presence": 6.1,
+      "performance_skills": 7.3,
+      "sewing_and_crafting": 5.5,
+      "comedy": 5.5,
+      "drama_and_emotion": 7.9,
+      "adaptability": 7.4,
+      "teamwork": 8.9,
+      "confidence": 7.2,
+      "lipsyncing": 6.2
+    }
+  },
+  {
+    "name": "Lyse",
+    "stats": {
+      "charisma": 8.5,
+      "creativity": 7.9,
+      "runway_presence": 7.6,
+      "performance_skills": 8.2,
+      "sewing_and_crafting": 7.0,
+      "comedy": 7.2,
+      "drama_and_emotion": 8.0,
+      "adaptability": 8.1,
+      "teamwork": 8.5,
+      "confidence": 8.4,
+      "lipsyncing": 7.5
+    }
+  },
+  {
+    "name": "Krile",
+    "stats": {
+      "charisma": 7.2,
+      "creativity": 8.3,
+      "runway_presence": 7.8,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 7.3,
+      "comedy": 6.8,
+      "drama_and_emotion": 7.6,
+      "adaptability": 7.9,
+      "teamwork": 8.6,
+      "confidence": 7.5,
+      "lipsyncing": 7.2
+    }
+  },
+  {
+    "name": "Estinien",
+    "stats": {
+      "charisma": 8.0,
+      "creativity": 7.4,
+      "runway_presence": 7.5,
+      "performance_skills": 8.3,
+      "sewing_and_crafting": 6.5,
+      "comedy": 6.7,
+      "drama_and_emotion": 8.5,
+      "adaptability": 7.8,
+      "teamwork": 7.6,
+      "confidence": 8.2,
+      "lipsyncing": 8.0
+    }
+  },
+  {
+    "name": "G'raha Tia",
+    "stats": {
+      "charisma": 8.6,
+      "creativity": 8.2,
+      "runway_presence": 8.1,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 7.0,
+      "comedy": 7.5,
+      "drama_and_emotion": 8.2,
+      "adaptability": 8.3,
+      "teamwork": 8.7,
+      "confidence": 8.5,
+      "lipsyncing": 7.7
+    }
+  },
+  {
+    "name": "Magnai",
+    "stats": {
+      "charisma": 7.8,
+      "creativity": 7.1,
+      "runway_presence": 7.4,
+      "performance_skills": 7.7,
+      "sewing_and_crafting": 6.6,
+      "comedy": 7.2,
+      "drama_and_emotion": 7.9,
+      "adaptability": 7.5,
+      "teamwork": 7.7,
+      "confidence": 7.6,
+      "lipsyncing": 7.4
+    }
+  },
+  {
+    "name": "Sadu",
+    "stats": {
+      "charisma": 8.0,
+      "creativity": 7.5,
+      "runway_presence": 7.6,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 6.8,
+      "comedy": 6.9,
+      "drama_and_emotion": 8.1,
+      "adaptability": 7.8,
+      "teamwork": 7.6,
+      "confidence": 8.3,
+      "lipsyncing": 7.7
+    }
+  }
+]

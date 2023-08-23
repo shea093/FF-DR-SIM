@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Snatch Game",
+    "biases": {
+      "performance_skills": 4,
+      "runway_presence": 2,
+      "creativity": 4,
+      "teamwork": 7,
+      "charisma": 9,
+      "adaptability": 10,
+      "sewing_and_crafting": 1,
+      "drama_and_emotion": 5,
+      "comedy": 10,
+      "lipsyncing": 1,
+      "confidence": 7
+    }
+  },
+  {
+    "name": "Ball Challenge",
+    "biases": {
+      "performance_skills": 6,
+      "runway_presence": 10,
+      "creativity": 9,
+      "teamwork": 1,
+      "charisma": 4,
+      "adaptability": 3,
+      "sewing_and_crafting": 9.5,
+      "drama_and_emotion": 5,
+      "comedy": 1,
+      "lipsyncing": 1.7,
+      "confidence": 6.4
+    }
+  }
+]
