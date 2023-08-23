@@ -17,7 +17,7 @@ def create_test_episode():
             "name": "Contestant " + str(i),
             "stats": [random.randint(1, 10) for _ in range(len(config.DB_COLUMNS) - 1)]
         }
-        for i in range(1, 15)
+        for i in range(1, 5)
     ]
     contestants = [Contestant(**data) for data in contestant_data]
 
@@ -49,17 +49,28 @@ if __name__ == '__main__':
     # Create a test episode
     test_episode = create_test_episode()
 
-    print("HIGH Group:")
-    for contestant in test_episode.high_group:
-        print(contestant.name, "-", test_episode.scores[contestant])
+    # Determine winners
+    winners = test_episode.determine_winner()
+    bottom2 = test_episode.determine_bottom_2()
 
-    print("\nSAFE Group:")
-    for contestant in test_episode.safe_group:
-        print(contestant.name, "-", test_episode.scores[contestant])
+    # Display results
+    print("Episode Results:")
+    print("Contestants:")
+    for contestant in test_episode.contestants:
+        print(contestant)
 
-    print("\nLOW Group:")
-    for contestant in test_episode.low_group:
-        print(contestant.name, "-", test_episode.scores[contestant])
+    print("\nCategorized Groups:")
+    print("HIGH Group:", [contestant.name for contestant in test_episode.high_group])
+    print("LOW Group:", [contestant.name for contestant in test_episode.low_group])
+    print("SAFE Group:", [contestant.name for contestant in test_episode.safe_group])
+
+    print("\nWinners:")
+    for winner in winners:
+        print(winner.name)
+
+    print("\nBottom 2:")
+    for btm in bottom2:
+        print(btm.name)
 
     test = 1
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

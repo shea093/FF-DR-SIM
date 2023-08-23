@@ -1,4 +1,8 @@
 import random
+
+import config
+
+
 class Episode:
     def __init__(self, id, contestants, challenge):
         """
@@ -15,6 +19,8 @@ class Episode:
         self.high_group = []
         self.low_group = []
         self.safe_group = []
+        self.winners = []
+        self.bottom2 = []
 
     def calculate_challenge_scores(self):
         """
@@ -87,6 +93,42 @@ class Episode:
             else:
                 self.safe_group.append(contestant)
                 assigned_contestants.append(contestant)
+
+    def determine_winner(self):
+        # Sort contestants by scores in descending order
+        sorted_contestants = sorted(self.contestants, key=lambda c: self.scores[c], reverse=True)
+
+        # Determine the number of winners (1 or 2)
+        num_winners = 1 if random.randint(1,100) > config.DOUBLE_WINNER_CHANCE else 2
+
+        # Assign the highest scoring contestants as winners
+        winners = sorted_contestants[:num_winners]
+
+        # Remove winners from the high group
+        self.high_group = [c for c in self.high_group if c not in winners]
+
+        # Store winners in the self.winners attribute
+        self.winners = winners
+
+        return winners
+
+    def determine_bottom_2(self):
+        # Define the modular formula function
+        def bottom2_formula(group, num_picks):
+            # Implement your modular formula here
+            # For now, let's just randomly choose contestants
+            return random.sample(group, num_picks)
+
+        # Use the modular formula to determine the bottom 2 from the LOW group
+        bottom_2 = bottom2_formula(self.low_group, num_picks=2)
+
+        # Remove winners from the high group
+        self.low_group = [c for c in self.low_group if c not in bottom_2]
+
+        # Store winners in the self.winners attribute
+        self.bottom2 = bottom_2
+
+        return bottom_2
 
     def __str__(self):
         """
