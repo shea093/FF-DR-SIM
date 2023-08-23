@@ -5,33 +5,26 @@ import random
 
 class Contestant:
     # Update when adding new attributes to __init__
-    def __init__(self, **kwargs):
+    def __init__(self, name, stats):
         """
-        Initialize a Contestant object based on the provided keyword arguments.
+        Initialize a Contestant object with a name and a dictionary of stats.
 
-        :param kwargs: Keyword arguments representing the contestant's attributes.
-                       The keys should match the columns defined in DB_COLUMNS.
+        :param name: The name of the contestant.
+        :param stats: A dictionary containing the contestant's stats.
         """
-        for column in config.DB_COLUMNS:
-            # Use kwargs.get(column, 0) to retrieve the value for the given column from kwargs.
-            # If the column is not present in kwargs, the default value of 0 is used.
-            setattr(self, column, kwargs.get(column, 0))
+        self.name = name
+        self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
 
     def perform_challenge(self, challenge):
-        """
-        Simulate a contestant's performance in a challenge with randomization.
-
-        :param challenge: The Challenge object for the episode.
-        :return: A simulated challenge score based on contestant attributes, challenge biases, and randomization.
-        """
-        # Calculate challenge score based on biases and contestant stats
-        base_challenge_score = sum(
-            (challenge.biases[attr] * getattr(self, attr))
+        total_bias = sum(challenge.biases.values())
+        total_stat = sum(
+            (challenge.biases[attr] * self.stats[attr])
             for attr in challenge.biases
         )
 
-        # Apply randomization using the apply_randomization method
-        challenge_score = self.apply_randomization(base_challenge_score)
+        # Calculate the scaled challenge score out of 10
+        challenge_score = (total_stat / total_bias) * 10
+        challenge_score = self.apply_randomization(challenge_score)
 
         return challenge_score
 
@@ -46,3 +39,7 @@ class Contestant:
         randomization_factor = random.uniform(1 - config.RANDOM_VARIABILITY, 1 + config.RANDOM_VARIABILITY)
         randomized_score = base_score * randomization_factor
         return randomized_score
+
+    def __str__(self):
+        avg_stats = sum(self.stats.values()) / len(self.stats)
+        return f"{self.name} (Avg Stats: {avg_stats:.2f})"

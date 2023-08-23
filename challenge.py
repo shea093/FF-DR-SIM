@@ -12,7 +12,8 @@ class Challenge:
         """
         self.id = id
         self.name = name
-        self.biases = dict(zip(config.DB_COLUMNS, biases))
+        self.biases = dict(zip(config.DB_COLUMNS[1:], biases))
+
 
     def simulate_challenge(self, contestant):
         """
