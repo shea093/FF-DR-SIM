@@ -127,7 +127,6 @@ class Episode:
 
         # Store winners in the self.winners attribute
         self.bottom2 = bottom_2
-
         return bottom_2
 
     def __str__(self):

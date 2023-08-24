@@ -13,7 +13,8 @@ class Contestant:
         :param stats: A dictionary containing the contestant's stats.
         """
         self.name = name
-        self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
+        # self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
+        self.stats = stats
 
     def perform_challenge(self, challenge):
         total_bias = sum(challenge.biases.values())

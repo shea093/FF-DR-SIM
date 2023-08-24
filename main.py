@@ -48,8 +48,32 @@ def load_objects_from_json(json_path, object_class, attributes_mapping):
     for item in data:
         attributes = [item[key] for key in attributes_mapping.values()]
         objects.append(object_class(*attributes))
+        if object_class is Contestant:
+            test = 1
+        # debug
+
 
     return objects
+
+
+def load_contestants_from_json(json_path):
+    """
+    Load contestant data from a JSON file and create Contestant objects.
+
+    :param json_path: Path to the JSON file containing contestant data.
+    :return: List of Contestant objects.
+    """
+    with open(json_path, "r") as file:
+        contestant_data = json.load(file)
+
+    contestant_objects = []
+    for data in contestant_data:
+        name = data["name"]
+        stats = data["stats"]
+        test = 1
+        contestant_objects.append(Contestant(name, stats))
+
+    return contestant_objects
 
 
 def create_test_episode():
@@ -68,7 +92,7 @@ def create_test_episode():
     # Simulate challenge scores for each contestant
     challenge = Challenge(1, "Test Challenge", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     test_challenges = load_objects_from_json("json_data/rpdr_challenges.json", Challenge, {"name": "name", "biases": "biases"})
-    test_contestants = load_objects_from_json("json_data/final_ffxiv_contestants_extended.json",Contestant, {"name": "name", "stats": "stats"})
+    test_contestants = load_contestants_from_json("json_data/final_ffxiv_contestants_extended.json")
 
     # Create an episode
     episode = Episode(1,contestants,challenge)

@@ -1,3 +1,6 @@
+from episode import Episode
+from challenge import Challenge
+from contestant import Contestant
 class Season:
     def __init__(self, id, contestants, finale_type):
         self.id = id
@@ -20,7 +23,14 @@ class Season:
         episode = Episode(len(self.episodes) + 1, self.current_contestants, challenge)
 
         # Categorize contestants and determine eliminated contestant
+
+        # Ensure scores are set for all contestants
+        for contestant in self.current_contestants:
+            episode.scores[contestant] = contestant.perform_challenge(challenge)
+
+
         episode.categorize_contestants()
+        episode.determine_bottom_2()
         eliminated = self.get_eliminated_contestant(episode)
 
         # Remove the eliminated contestant from the current contestants
@@ -33,7 +43,7 @@ class Season:
 
     def run_season(self):
         # Simulate each episode until the number of current_contestants matches the finale type
-        while len(self.current_contestants) > self.finale_type:
+        while len(self.current_contestants) > self.finale_type + 2:
             # Placeholder challenge for now
             challenge = Challenge(len(self.challenges) + 1, "Test Challenge", *[1 for _ in range(12)])
             self.challenges.append(challenge)
@@ -42,10 +52,10 @@ class Season:
             self.simulate_episode(challenge)
 
         # Once the loop ends, we're at the finale episode
-        finale_episode = self.simulate_episode(challenge)
+        challenge = Challenge(len(self.challenges) + 1, "Test Challenge", *[1 for _ in range(12)])
 
         # Determine the winner
-        winner = self.get_winner(finale_episode)
+        winner = self.get_winner(self.challenges[-1])
 
         return winner
 
