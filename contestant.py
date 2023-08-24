@@ -5,7 +5,7 @@ import random
 
 class Contestant:
     # Update when adding new attributes to __init__
-    def __init__(self, name, stats):
+    def __init__(self, name, *stats):
         """
         Initialize a Contestant object with a name and a dictionary of stats.
 
@@ -13,8 +13,9 @@ class Contestant:
         :param stats: A dictionary containing the contestant's stats.
         """
         self.name = name
-        # self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
-        self.stats = stats
+        self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
+        test =1
+        # self.stats = stats
 
     def perform_challenge(self, challenge):
         total_bias = sum(challenge.biases.values())

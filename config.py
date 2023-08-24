@@ -7,3 +7,7 @@ DB_COLUMNS = ['name', 'charisma', 'creativity', 'runway_presence', 'performance_
                'comedy', 'drama_and_emotion', 'adaptability', 'teamwork', 'confidence', 'lipsyncing']
 #Variable for setting % of a double win chance, use 1-100
 DOUBLE_WINNER_CHANCE = 15
+
+#VARIABILITY FOR LIPSYNCS
+min_lipsync = 0.4
+max_lipsync = 2

@@ -30,5 +30,293 @@
       "lipsyncing": 1.7,
       "confidence": 6.4
     }
+  },
+  {
+    "name": "Charisma Charade",
+    "biases": {
+      "charisma": 8.6,
+      "creativity": 8.2,
+      "runway_presence": 8.1,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 2.0,
+      "comedy": 6.5,
+      "drama_and_emotion": 8.2,
+      "adaptability": 7.0,
+      "teamwork": 7.5,
+      "confidence": 8.5,
+      "lipsyncing": 6.5
+    }
+  },
+  {
+    "name": "Sewing Spectacular",
+    "biases": {
+      "charisma": 6.0,
+      "creativity": 6.5,
+      "runway_presence": 7.0,
+      "performance_skills": 6.0,
+      "sewing_and_crafting": 9.0,
+      "comedy": 3.0,
+      "drama_and_emotion": 6.5,
+      "adaptability": 7.5,
+      "teamwork": 5.0,
+      "confidence": 6.0,
+      "lipsyncing": 3.0
+    }
+  },
+  {
+    "name": "Comedy Cabaret",
+    "biases": {
+      "charisma": 7.0,
+      "creativity": 8.5,
+      "runway_presence": 6.5,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 9.0,
+      "drama_and_emotion": 7.0,
+      "adaptability": 8.0,
+      "teamwork": 6.0,
+      "confidence": 8.5,
+      "lipsyncing": 7.5
+    }
+  },
+  {
+    "name": "Drama Diva",
+    "biases": {
+      "charisma": 6.5,
+      "creativity": 7.5,
+      "runway_presence": 7.0,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 8.5,
+      "adaptability": 8.5,
+      "teamwork": 5.0,
+      "confidence": 8.0,
+      "lipsyncing": 6.0
+    }
+  },
+  {
+    "name": "Teamwork Tango",
+    "biases": {
+      "charisma": 6.0,
+      "creativity": 7.0,
+      "runway_presence": 6.5,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 7.5,
+      "adaptability": 9.0,
+      "teamwork": 9.0,
+      "confidence": 7.0,
+      "lipsyncing": 6.0
+    }
+  },
+  {
+    "name": "Runway Royalty",
+    "biases": {
+      "charisma": 7.5,
+      "creativity": 6.5,
+      "runway_presence": 8.5,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 7.5,
+      "adaptability": 7.5,
+      "teamwork": 6.0,
+      "confidence": 8.5,
+      "lipsyncing": 7.0
+    }
+  },
+  {
+    "name": "Lipsync Smackdown",
+    "biases": {
+      "charisma": 7.0,
+      "creativity": 6.0,
+      "runway_presence": 6.0,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 1.0,
+      "comedy": 2.0,
+      "drama_and_emotion": 6.0,
+      "adaptability": 6.0,
+      "teamwork": 2.0,
+      "confidence": 7.5,
+      "lipsyncing": 9.0
+    }
+  },
+  {
+    "name": "Character Creativity",
+    "biases": {
+      "charisma": 8.5,
+      "creativity": 9.0,
+      "runway_presence": 7.0,
+      "performance_skills": 8.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 5.0,
+      "drama_and_emotion": 8.5,
+      "adaptability": 8.0,
+      "teamwork": 7.0,
+      "confidence": 8.5,
+      "lipsyncing": 6.5
+    }
+  },
+  {
+    "name": "Wild Card",
+    "biases": {
+      "charisma": 9.0,
+      "creativity": 8.2,
+      "runway_presence": 8.1,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 6.0,
+      "drama_and_emotion": 8.2,
+      "adaptability": 8.3,
+      "teamwork": 7.5,
+      "confidence": 8.5,
+      "lipsyncing": 7.7
+    }
+  },
+      {
+    "name": "Charisma Charade",
+    "biases": {
+      "charisma": 8.6,
+      "creativity": 8.2,
+      "runway_presence": 8.1,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 2.0,
+      "comedy": 6.5,
+      "drama_and_emotion": 8.2,
+      "adaptability": 7.0,
+      "teamwork": 7.5,
+      "confidence": 8.5,
+      "lipsyncing": 6.5
+    }
+  },
+  {
+    "name": "Sewing Spectacular",
+    "biases": {
+      "charisma": 6.0,
+      "creativity": 6.5,
+      "runway_presence": 7.0,
+      "performance_skills": 6.0,
+      "sewing_and_crafting": 9.0,
+      "comedy": 3.0,
+      "drama_and_emotion": 6.5,
+      "adaptability": 7.5,
+      "teamwork": 5.0,
+      "confidence": 6.0,
+      "lipsyncing": 3.0
+    }
+  },
+  {
+    "name": "Comedy Cabaret",
+    "biases": {
+      "charisma": 7.0,
+      "creativity": 8.5,
+      "runway_presence": 6.5,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 9.0,
+      "drama_and_emotion": 7.0,
+      "adaptability": 8.0,
+      "teamwork": 6.0,
+      "confidence": 8.5,
+      "lipsyncing": 7.5
+    }
+  },
+  {
+    "name": "Drama Diva",
+    "biases": {
+      "charisma": 6.5,
+      "creativity": 7.5,
+      "runway_presence": 7.0,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 8.5,
+      "adaptability": 8.5,
+      "teamwork": 5.0,
+      "confidence": 8.0,
+      "lipsyncing": 6.0
+    }
+  },
+  {
+    "name": "Teamwork Tango",
+    "biases": {
+      "charisma": 6.0,
+      "creativity": 7.0,
+      "runway_presence": 6.5,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 7.5,
+      "adaptability": 9.0,
+      "teamwork": 9.0,
+      "confidence": 7.0,
+      "lipsyncing": 6.0
+    }
+  },
+  {
+    "name": "Runway Royalty",
+    "biases": {
+      "charisma": 7.5,
+      "creativity": 6.5,
+      "runway_presence": 8.5,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 4.0,
+      "drama_and_emotion": 7.5,
+      "adaptability": 7.5,
+      "teamwork": 6.0,
+      "confidence": 8.5,
+      "lipsyncing": 7.0
+    }
+  },
+  {
+    "name": "Lipsync Smackdown",
+    "biases": {
+      "charisma": 7.0,
+      "creativity": 6.0,
+      "runway_presence": 6.0,
+      "performance_skills": 7.5,
+      "sewing_and_crafting": 1.0,
+      "comedy": 2.0,
+      "drama_and_emotion": 6.0,
+      "adaptability": 6.0,
+      "teamwork": 2.0,
+      "confidence": 7.5,
+      "lipsyncing": 9.0
+    }
+  },
+  {
+    "name": "Character Creativity",
+    "biases": {
+      "charisma": 8.5,
+      "creativity": 9.0,
+      "runway_presence": 7.0,
+      "performance_skills": 8.5,
+      "sewing_and_crafting": 3.0,
+      "comedy": 5.0,
+      "drama_and_emotion": 8.5,
+      "adaptability": 8.0,
+      "teamwork": 7.0,
+      "confidence": 8.5,
+      "lipsyncing": 6.5
+    }
+  },
+  {
+    "name": "Wild Card",
+    "biases": {
+      "charisma": 9.0,
+      "creativity": 8.2,
+      "runway_presence": 8.1,
+      "performance_skills": 8.0,
+      "sewing_and_crafting": 3.0,
+      "comedy": 6.0,
+      "drama_and_emotion": 8.2,
+      "adaptability": 8.3,
+      "teamwork": 7.5,
+      "confidence": 8.5,
+      "lipsyncing": 7.7
+    }
   }
 ]

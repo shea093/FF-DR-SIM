@@ -28,10 +28,19 @@ class Season:
         for contestant in self.current_contestants:
             episode.scores[contestant] = contestant.perform_challenge(challenge)
 
+        if len(episode.contestants) > 4:
+            episode.categorize_contestants()
+            episode.determine_bottom_2()
+            episode.determine_winner()
+        else:
+            sorted_contestants = sorted(episode.contestants, key=lambda c: episode.scores[c], reverse=True)
+            episode.bottom2 = [sorted_contestants[-1],sorted_contestants[-2]]
 
-        episode.categorize_contestants()
-        episode.determine_bottom_2()
-        eliminated = self.get_eliminated_contestant(episode)
+        if len(episode.contestants) == 4:
+            test = 1
+        lipsync = episode.lipsync(episode.bottom2[0],episode.bottom2[1])
+        eliminated = lipsync[1]
+        test =0
 
         # Remove the eliminated contestant from the current contestants
         self.current_contestants.remove(eliminated)
@@ -41,9 +50,17 @@ class Season:
 
         return episode
 
+    def simulate_finale(self, challenge):
+        episode = Episode(len(self.episodes) + 1, self.current_contestants, challenge)
+        for contestant in self.current_contestants:
+            episode.scores[contestant] = contestant.perform_challenge(challenge)
+        winner = episode.determine_winner()
+        return [winner,episode]
+
+
     def run_season(self):
         # Simulate each episode until the number of current_contestants matches the finale type
-        while len(self.current_contestants) > self.finale_type + 2:
+        while len(self.current_contestants) > self.finale_type:
             # Placeholder challenge for now
             challenge = Challenge(len(self.challenges) + 1, "Test Challenge", *[1 for _ in range(12)])
             self.challenges.append(challenge)
@@ -53,16 +70,20 @@ class Season:
 
         # Once the loop ends, we're at the finale episode
         challenge = Challenge(len(self.challenges) + 1, "Test Challenge", *[1 for _ in range(12)])
+        finale_list = self.simulate_finale(challenge)
 
         # Determine the winner
-        winner = self.get_winner(self.challenges[-1])
+        winner = finale_list[0]
+        winner_ep = finale_list[1]
+        a =1
 
         return winner
 
     def get_winner(self, finale_episode):
         # Placeholder logic to get the season winner (e.g., highest score in the finale)
         # This can be expanded based on specific criteria
-        return max(finale_episode.scores, key=finale_episode.scores.get)
+        test = 1
+        return finale_episode.winners[0]
 
     def set_finale_type(self, type):
         self.finale_type = type

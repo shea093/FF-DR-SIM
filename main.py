@@ -78,21 +78,21 @@ def load_contestants_from_json(json_path):
 
 def create_test_episode():
     # Create contestants with names and randomized stats
-    contestant_data = [
-        {
-            "name": "Contestant " + str(i),
-            "stats": [random.randint(1, 10) for _ in range(len(config.DB_COLUMNS) - 1)]
-        }
-        for i in range(1, 14)
-    ]
-    contestants = [Contestant(**data) for data in contestant_data]
+    # contestant_data = [
+    #     {
+    #         "name": "Contestant " + str(i),
+    #         "stats": [random.randint(1, 10) for _ in range(len(config.DB_COLUMNS) - 1)]
+    #     }
+    #     for i in range(1, 14)
+    # ]
+    # contestants = [Contestant(**data) for data in contestant_data]
 
 
 
     # Simulate challenge scores for each contestant
     challenge = Challenge(1, "Test Challenge", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     test_challenges = load_objects_from_json("json_data/rpdr_challenges.json", Challenge, {"name": "name", "biases": "biases"})
-    test_contestants = load_contestants_from_json("json_data/final_ffxiv_contestants_extended.json")
+    test_contestants = load_objects_from_json("json_data/ffxiv_2.json", Contestant, {"name": "name", "stats": "stats"})
 
     # Create an episode
     episode = Episode(1,contestants,challenge)

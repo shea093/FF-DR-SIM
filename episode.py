@@ -1,5 +1,5 @@
 import random
-
+from contestant import Contestant
 import config
 
 
@@ -21,6 +21,7 @@ class Episode:
         self.safe_group = []
         self.winners = []
         self.bottom2 = []
+        self.eliminated = []
 
     def calculate_challenge_scores(self):
         """
@@ -128,6 +129,18 @@ class Episode:
         # Store winners in the self.winners attribute
         self.bottom2 = bottom_2
         return bottom_2
+
+    def lipsync(self, contestant1: Contestant, contestant2: Contestant  ):
+        random_factor1 = random.uniform(config.min_lipsync, config.max_lipsync)
+        random_factor2 = random.uniform(config.min_lipsync, config.max_lipsync)
+
+        randomized_num1 = contestant1.stats["lipsyncing"] * random_factor1
+        randomized_num2 = contestant2.stats["lipsyncing"] * random_factor2
+
+        if randomized_num1 > randomized_num2:
+            return [contestant1,contestant2]
+        else:
+            return [contestant2, contestant1]
 
     def __str__(self):
         """
