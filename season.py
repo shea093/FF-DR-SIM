@@ -2,12 +2,12 @@ from episode import Episode
 from challenge import Challenge
 from contestant import Contestant
 class Season:
-    def __init__(self, id, contestants, finale_type):
+    def __init__(self, id, contestants, challenges, finale_type):
         self.id = id
         self.episodes = []
         self.contestants = contestants  # All contestants that start the season
         self.current_contestants = contestants.copy()  # Contestants currently in the competition
-        self.challenges = []  # This can be populated as we go or pre-defined
+        self.challenges = challenges
         self.finale_type = finale_type  # Top 3 or Top 4
 
     def add_episode(self, episode):
@@ -60,6 +60,7 @@ class Season:
 
     def run_season(self):
         # Simulate each episode until the number of current_contestants matches the finale type
+
         while len(self.current_contestants) > self.finale_type:
             # Placeholder challenge for now
             challenge = Challenge(len(self.challenges) + 1, "Test Challenge", *[1 for _ in range(12)])

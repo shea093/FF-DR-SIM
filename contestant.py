@@ -5,15 +5,16 @@ import random
 
 class Contestant:
     # Update when adding new attributes to __init__
-    def __init__(self, name, *stats):
+    def __init__(self, id, name, stats):
         """
         Initialize a Contestant object with a name and a dictionary of stats.
 
         :param name: The name of the contestant.
         :param stats: A dictionary containing the contestant's stats.
         """
+        self.id = id
         self.name = name
-        self.stats = dict(zip(config.DB_COLUMNS[1:], stats))  # Exclude 'name' from columns
+        self.stats = stats  # Exclude 'name' from columns
         test =1
         # self.stats = stats
 

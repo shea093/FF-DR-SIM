@@ -13,26 +13,47 @@ random.seed(config.DOUBLE_WINNER_CHANCE)
 def generate_random_stats():
     return [round(random.uniform(0, 10), 2) for _ in range(11)]
 
-def load_objects_from_json(json_path, object_class, attributes_mapping):
-    """
-    Load data from a JSON file and create objects based on a provided class structure.
+# def load_objects_from_json(json_path, object_class, attributes_mapping):
+#     """
+#     Load data from a JSON file and create objects based on a provided class structure.
+#
+#     :param json_path: Path to the JSON file containing data.
+#     :param object_class: The class to create objects from.
+#     :param attributes_mapping: A dictionary mapping attribute names to keys in the JSON data.
+#     :return: List of objects created from the JSON data.
+#     """
+#     with open(json_path, "r") as file:
+#         data = json.load(file)
+#
+#     objects = []
+#     for item in data:
+#         attributes = [item[key] for key in attributes_mapping.values()]
+#         objects.append(object_class(*attributes))
+#         if object_class is Contestant:
+#             test = 1
+#         # debug
+#
+#
+#     return objects
 
-    :param json_path: Path to the JSON file containing data.
-    :param object_class: The class to create objects from.
-    :param attributes_mapping: A dictionary mapping attribute names to keys in the JSON data.
-    :return: List of objects created from the JSON data.
-    """
+def load_objects_from_json(json_path, object_class, attributes_mapping):
     with open(json_path, "r") as file:
         data = json.load(file)
 
     objects = []
-    for item in data:
-        attributes = [item[key] for key in attributes_mapping.values()]
-        objects.append(object_class(*attributes))
-        if object_class is Contestant:
-            test = 1
-        # debug
+    for index, item in enumerate(data):
+        attributes = {
+            attr: item[key] if key in item else (index + 1 if key == "id" else None)
+            for attr, key in attributes_mapping.items()
+        }
 
+        # Extract biases or stats as a dictionary
+        if "biases" in item:
+            attributes["biases"] = item["biases"]
+        elif "stats" in item:
+            attributes["stats"] = item["stats"]
+
+        objects.append(object_class(**attributes))
 
     return objects
 
@@ -46,11 +67,11 @@ names = [
 # Generate Contestants
 # mock_contestants = [Contestant(name, *generate_random_stats()) for name in names]
 test_challenges = load_objects_from_json("json_data/rpdr_challenges.json", Challenge,
-                                         {"name": "name", "biases": "biases"})
-mock_contestants = load_objects_from_json("json_data/ffxiv_2.json", Contestant, {"name": "name", "stats": "stats"})
-test
+                                         {"id": "id","name": "name", "biases": "biases"})
+mock_contestants = load_objects_from_json("json_data/ffxiv_2.json", Contestant, {"id": "id","name": "name", "stats": "stats"})
 
-mock_season = Season(id=1, contestants=mock_contestants, finale_type=3)
+
+mock_season = Season(id=1, contestants=mock_contestants, challenges = test_challenges, finale_type=3)
 season_winner = mock_season.run_season()
 
 

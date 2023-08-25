@@ -2,7 +2,7 @@ import config
 
 class Challenge:
     _DB_COLUMNS = config.DB_COLUMNS
-    def __init__(self, id, name, *biases):
+    def __init__(self, id, name, biases):
         """
         Initialize a Challenge object with specified attributes and biases.
 
@@ -12,7 +12,7 @@ class Challenge:
         """
         self.id = id
         self.name = name
-        self.biases = dict(zip(config.DB_COLUMNS[1:], biases))
+        self.biases = biases
 
 
     # def simulate_challenge(self, contestant):
