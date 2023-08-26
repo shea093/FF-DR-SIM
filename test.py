@@ -69,7 +69,7 @@ names = [
 test_challenges = load_objects_from_json("json_data/rpdr_challenges.json", Challenge,
                                          {"id": "id","name": "name", "biases": "biases"})
 mock_contestants = load_objects_from_json("json_data/ffxiv_2.json", Contestant, {"id": "id","name": "name", "stats": "stats"})
-
+test = 1
 
 mock_season = Season(id=1, contestants=mock_contestants, challenges = test_challenges, finale_type=3)
 season_winner = mock_season.run_season()

@@ -1,6 +1,7 @@
 import random
 from contestant import Contestant
 import config
+from typing import List, Tuple
 
 
 class Episode:
@@ -131,8 +132,8 @@ class Episode:
         return bottom_2
 
     def lipsync(self, contestant1: Contestant, contestant2: Contestant  ):
-        random_factor1 = random.uniform(config.min_lipsync, config.max_lipsync)
-        random_factor2 = random.uniform(config.min_lipsync, config.max_lipsync)
+        random_factor1 = random.uniform(config.MIN_LIPSYNC, config.MAX_LIPSYNC)
+        random_factor2 = random.uniform(config.MIN_LIPSYNC, config.MAX_LIPSYNC)
 
         randomized_num1 = contestant1.stats["lipsyncing"] * random_factor1
         randomized_num2 = contestant2.stats["lipsyncing"] * random_factor2
@@ -141,6 +142,27 @@ class Episode:
             return [contestant1,contestant2]
         else:
             return [contestant2, contestant1]
+
+    def improved_lipsync(contestants: List[Contestant]) -> Tuple[Contestant, List[Contestant]]:
+        """
+        Simulates a lipsync performance among the given contestants and determines the winner.
+
+        :param contestants: List of Contestant objects participating in the lipsync.
+        :return: A tuple where the first element is the winning contestant, and the second element is a list of the remaining contestants.
+        """
+        # Calculate the performance metric for each contestant
+        performance_metrics = {}
+        for contestant in contestants:
+            random_factor = random.uniform(config.MIN_LIPSYNC, config.MAX_LIPSYNC)
+            performance_metric = config.LIPSYNC_STAT_WEIGHT * contestant.stats["lipsyncing"] + (
+                        1 - config.LIPSYNC_STAT_WEIGHT) * random_factor
+            performance_metrics[contestant] = performance_metric
+
+        # Determine the winner and the remaining contestants
+        winner = max(performance_metrics, key=performance_metrics.get)
+        remaining_contestants = [contestant for contestant in contestants if contestant != winner]
+
+        return winner, remaining_contestants
 
     def __str__(self):
         """

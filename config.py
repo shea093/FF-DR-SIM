@@ -9,5 +9,6 @@ DB_COLUMNS = ['name', 'charisma', 'creativity', 'runway_presence', 'performance_
 DOUBLE_WINNER_CHANCE = 15
 
 #VARIABILITY FOR LIPSYNCS
-min_lipsync = 0.4
-max_lipsync = 2
+MIN_LIPSYNC = 0.4
+MAX_LIPSYNC = 2
+LIPSYNC_STAT_WEIGHT = 0.8  # Weight for the contestant's lip syncing stat
